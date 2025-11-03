@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://qk2vwg6ji4p5"
+path="res://.godot/imported/noah_intro.dialogue-4b600d7f80dd4b07a65d90e1e8ab9dd2.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/noah/0_intro/intro_components/noah_intro.dialogue"
+dest_files=["res://.godot/imported/noah_intro.dialogue-4b600d7f80dd4b07a65d90e1e8ab9dd2.tres"]
+
+[params]
+
+defaults=true
