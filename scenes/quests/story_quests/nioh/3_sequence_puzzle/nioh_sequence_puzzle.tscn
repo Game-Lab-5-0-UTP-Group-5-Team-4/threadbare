@@ -1,0 +1,145 @@
+[gd_scene load_steps=24 format=4 uid="uid://dkvqotksy0tlg"]
+
+[ext_resource type="TileSet" uid="uid://07fq3rspk8ia" path="res://scenes/tileset.tres" id="1_eueeo"]
+[ext_resource type="PackedScene" uid="uid://iu2q66clupc6" path="res://scenes/game_elements/characters/player/player.tscn" id="2_akuwb"]
+[ext_resource type="SpriteFrames" uid="uid://b001my21qv2t" path="res://scenes/quests/story_quests/nioh/player_components/nioh_player.tres" id="3_xdc8g"]
+[ext_resource type="Script" uid="uid://c68oh8dtr21ti" path="res://scenes/game_logic/sequence_puzzle.gd" id="4_o3k30"]
+[ext_resource type="PackedScene" uid="uid://b8sok264erfoc" path="res://scenes/game_elements/props/sequence_puzzle_object/sequence_puzzle_object.tscn" id="5_41yf5"]
+[ext_resource type="SpriteFrames" uid="uid://b3t7c7t61v6gx" path="res://scenes/quests/story_quests/nioh/3_sequence_puzzle/nioh_object.tres" id="6_xg2gt"]
+[ext_resource type="AudioStream" uid="uid://cg57q82pb243w" path="res://assets/third_party/nepalese_hand_bells/handBells-c4.ogg" id="7_e3q35"]
+[ext_resource type="AudioStream" uid="uid://b83x8h0ob5mpq" path="res://assets/third_party/nepalese_hand_bells/handBells-d4.ogg" id="8_i1j8p"]
+[ext_resource type="AudioStream" uid="uid://cmtiwg2cylmts" path="res://assets/third_party/nepalese_hand_bells/handBells-e4.ogg" id="9_qg2fr"]
+[ext_resource type="AudioStream" uid="uid://8k1hyi4gjae4" path="res://assets/third_party/nepalese_hand_bells/handBells-f4.ogg" id="10_tgsfw"]
+[ext_resource type="AudioStream" uid="uid://6oahn2ucxxjv" path="res://assets/third_party/nepalese_hand_bells/handBells-g4.ogg" id="11_g1de4"]
+[ext_resource type="AudioStream" uid="uid://bdboi4ndapqec" path="res://assets/third_party/nepalese_hand_bells/handBells-a4.ogg" id="12_nm4jd"]
+[ext_resource type="PackedScene" uid="uid://be4o3ythda4cu" path="res://scenes/game_elements/props/sequence_puzzle_hint_sign/sequence_puzzle_hint_sign.tscn" id="13_di3m6"]
+[ext_resource type="SpriteFrames" uid="uid://dhxlpm6sitinn" path="res://scenes/quests/story_quests/nioh/3_sequence_puzzle/nioh_sign.tres" id="14_vht4q"]
+[ext_resource type="SpriteFrames" uid="uid://cjmr5c420yccg" path="res://scenes/quests/story_quests/nioh/3_sequence_puzzle/nioh_sign_2.tres" id="15_8oras"]
+[ext_resource type="Script" uid="uid://ccc78coj2b1li" path="res://scenes/game_logic/sequence_puzzle_step.gd" id="16_7tuny"]
+[ext_resource type="PackedScene" uid="uid://fuhl3l6gxq5k" path="res://scenes/game_elements/props/collectible_item/collectible_item.tscn" id="17_1r6vl"]
+[ext_resource type="Script" uid="uid://bgmwplmj3bfls" path="res://scenes/globals/game_state/inventory/inventory_item.gd" id="18_42jdg"]
+[ext_resource type="Resource" uid="uid://dprw214busesm" path="res://scenes/quests/story_quests/nioh/3_sequence_puzzle/nioh_sequence_puzzle.dialogue" id="19_cmfx5"]
+[ext_resource type="PackedScene" uid="uid://covsdqqsd6rsy" path="res://scenes/game_elements/props/sign/sign.tscn" id="20_a828g"]
+[ext_resource type="PackedScene" uid="uid://cfcgrfvtn04yp" path="res://scenes/ui_elements/hud/hud.tscn" id="21_nahtu"]
+[ext_resource type="Script" uid="uid://x1mxt6bmei2o" path="res://scenes/ui_elements/cinematic/cinematic.gd" id="22_1wnr2"]
+
+[sub_resource type="Resource" id="Resource_2rmld"]
+script = ExtResource("18_42jdg")
+type = 2
+metadata/_custom_type_script = "uid://bgmwplmj3bfls"
+
+[node name="SequencePuzzleTemplate" type="Node2D"]
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="Grass" type="TileMapLayer" parent="TileMapLayers"]
+tile_map_data = PackedByteArray("AAANAAcAAQABAAEAAAANAAYAAQABAAEAAAANAAUAAQABAAEAAAANAAQAAQABAAEAAAANAAMAAQABAAEAAAANAAIAAQABAAEAAAANAAEAAQABAAEAAAAMAAcAAQABAAEAAAAMAAYAAQABAAEAAAAMAAUAAQABAAEAAAAMAAQAAQABAAEAAAAMAAMAAQABAAEAAAAMAAIAAQABAAEAAAAMAAEAAQABAAEAAAALAAcAAQABAAEAAAALAAYAAQABAAEAAAALAAUAAQABAAEAAAALAAQAAQABAAEAAAALAAMAAQABAAEAAAALAAIAAQABAAEAAAALAAEAAQABAAEAAAAKAAcAAQABAAEAAAAKAAYAAQABAAEAAAAKAAUAAQABAAEAAAAKAAQAAQABAAEAAAAKAAMAAQABAAEAAAAKAAIAAQABAAEAAAAJAAcAAQABAAEAAAAJAAYAAQABAAEAAAAJAAUAAQABAAEAAAAJAAQAAQABAAEAAAAJAAMAAQABAAEAAAAJAAIAAQABAAEAAAAIAAcAAQABAAEAAAAIAAYAAQABAAEAAAAIAAUAAQABAAEAAAAIAAQAAQABAAEAAAAIAAMAAQABAAEAAAAIAAIAAQABAAEAAAAHAAcAAQABAAEAAAAHAAYAAQABAAEAAAAHAAUAAQABAAEAAAAHAAQAAQABAAEAAAAHAAMAAQABAAEAAAAHAAIAAQABAAEAAAAGAAcAAQABAAEAAAAGAAYAAQABAAEAAAAGAAUAAQABAAEAAAAGAAQAAQABAAEAAAAGAAMAAQABAAEAAAAGAAIAAQABAAEAAAAFAAcAAQABAAEAAAAFAAYAAQABAAEAAAAFAAUAAQABAAEAAAAFAAQAAQABAAEAAAAFAAMAAQABAAEAAAAFAAIAAQABAAEAAAAFAAEAAQABAAEAAAAEAAcAAQABAAEAAAAEAAYAAQABAAEAAAAEAAQAAQABAAEAAAAEAAMAAQABAAEAAAAEAAIAAQABAAEAAAAEAAEAAQABAAEAAAADAAQAAQABAAEAAAADAAMAAQABAAEAAAADAAIAAQABAAEAAAADAAEAAQABAAEAAAACAAMAAQABAAEAAAACAAIAAQABAAEAAAACAAEAAQABAAEAAAABAAMAAQABAAEAAAABAAIAAQABAAEAAAABAAEAAQABAAEAAAACAAQAAQABAAEAAAABAAQAAQABAAEAAAAAAAQAAQABAAEAAAAGAAAAAQABAAEAAAAHAAAAAQABAAEAAAAFAAAAAQABAAEAAAAIAAAAAQABAAEAAAAJAAAAAQABAAEAAAALAAAAAQABAAEAAAAMAAAAAQABAAEAAAAKAAAAAQABAAEAAAANAAAAAQABAAEAAAAEAAAAAQABAAEAAAADAAAAAQABAAEAAAACAAAAAQABAAEAAAABAAAAAQABAAEAAAAAAAAAAQABAAEAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAAAAAMAAQABAAEAAAAAAAgAAQABAAEAAAABAAgAAQABAAEAAAACAAgAAQABAAEAAAADAAgAAQABAAEAAAAEAAgAAQABAAEAAAAFAAgAAQABAAEAAAAGAAgAAQABAAEAAAAHAAgAAQABAAEAAAAIAAgAAQABAAEAAAAJAAgAAQABAAEAAAAKAAgAAQABAAEAAAAMAAgAAQABAAEAAAALAAgAAQABAAEAAAANAAgAAQABAAEAAAAOAAgAAQABAAEAAAAOAAcAAQABAAEAAAAOAAYAAQABAAEAAAAOAAUAAQABAAEAAAAOAAQAAQABAAEAAAAOAAMAAQABAAEAAAAOAAIAAQABAAEAAAAOAAEAAQABAAEAAAAOAAAAAQABAAEAAAAAAAUAAQABAAEAAAABAAUAAQABAAEAAAACAAUAAQABAAEAAAADAAUAAQABAAEAAAAEAAUAAQABAAEAAAADAAYAAQABAAEAAAACAAYAAQABAAEAAAABAAYAAQABAAEAAAAAAAYAAQABAAEAAAAAAAcAAQABAAEAAAABAAcAAQABAAEAAAACAAcAAQABAAEAAAADAAcAAQABAAEAAAAGAAEAAQABAAEAAAAHAAEAAQABAAEAAAAIAAEAAQABAAEAAAAJAAEAAQABAAEAAAAKAAEAAQABAAEAAAAPAAkAAQACAAIAAAAPAAgAAQACAAEAAAAPAAcAAQACAAEAAAAPAAYAAQACAAEAAAAPAAUAAQACAAEAAAAPAAQAAQACAAEAAAAPAAMAAQACAAEAAAAPAAIAAQACAAEAAAAPAAEAAQACAAEAAAAPAAAAAQACAAEAAAAPAP//AQACAAAAAAAOAAkAAQABAAIAAAAOAP//AQABAAAAAAANAAkAAQABAAIAAAANAP//AQABAAAAAAAMAAkAAQABAAIAAAAMAP//AQABAAAAAAALAAkAAQABAAIAAAALAP//AQABAAAAAAAKAAkAAQABAAIAAAAKAP//AQABAAAAAAAJAAkAAQABAAIAAAAJAP//AQABAAAAAAAIAAkAAQABAAIAAAAIAP//AQABAAAAAAAHAAkAAQABAAIAAAAHAP//AQABAAAAAAAGAAkAAQABAAIAAAAGAP//AQABAAAAAAAFAAkAAQABAAIAAAAFAP//AQABAAAAAAAEAAkAAQABAAIAAAAEAP//AQABAAAAAAADAAkAAQABAAIAAAADAP//AQABAAAAAAACAAkAAQABAAIAAAACAP//AQABAAAAAAABAAkAAQABAAIAAAABAP//AQABAAAAAAAAAAkAAQABAAIAAAAAAP//AQABAAAAAAD//wkAAQAAAAIAAAD//wgAAQAAAAEAAAD//wcAAQAAAAEAAAD//wYAAQAAAAEAAAD//wUAAQAAAAEAAAD//wQAAQAAAAEAAAD//wMAAQAAAAEAAAD//wIAAQAAAAEAAAD//wEAAQAAAAEAAAD//wAAAQAAAAEAAAD/////AQAAAAAAAAA=")
+tile_set = ExtResource("1_eueeo")
+
+[node name="Sand" type="TileMapLayer" parent="TileMapLayers"]
+tile_map_data = PackedByteArray("AAD//wcAAQAFAAMAAAAAAAcAAQAGAAMAAAABAAcAAQAGAAMAAAACAAcAAQAGAAMAAAADAAcAAQAHAAIAAAADAAYAAQAIAAEAAAADAAUAAQAFAAAAAAAEAAUAAQAGAAMAAAAFAAUAAQAGAAMAAAAGAAUAAQAGAAMAAAAHAAUAAQAGAAMAAAAIAAUAAQAGAAMAAAAJAAUAAQAGAAMAAAAKAAUAAQAGAAMAAAALAAUAAQAHAAIAAAALAAQAAQAFAAAAAAAMAAQAAQAGAAMAAAANAAQAAQAGAAMAAAAOAAQAAQAGAAMAAAAPAAQAAQAHAAMAAAA=")
+tile_set = ExtResource("1_eueeo")
+
+[node name="OnTheGround" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="OnTheGround" instance=ExtResource("2_akuwb")]
+position = Vector2(383, 371)
+sprite_frames = ExtResource("3_xdc8g")
+
+[node name="SequencePuzzle" type="Node2D" parent="OnTheGround"]
+y_sort_enabled = true
+position = Vector2(-1, 0)
+script = ExtResource("4_o3k30")
+metadata/_custom_type_script = "uid://c68oh8dtr21ti"
+
+[node name="Objects" type="Node2D" parent="OnTheGround/SequencePuzzle"]
+y_sort_enabled = true
+position = Vector2(356, 453)
+
+[node name="Blue" parent="OnTheGround/SequencePuzzle/Objects" instance=ExtResource("5_41yf5")]
+modulate = Color(0, 0.4, 0.6, 1)
+sprite_frames = ExtResource("6_xg2gt")
+audio_stream = ExtResource("7_e3q35")
+
+[node name="Pink" parent="OnTheGround/SequencePuzzle/Objects" instance=ExtResource("5_41yf5")]
+modulate = Color(0.89, 0.2937, 0.804817, 1)
+position = Vector2(80, -8)
+sprite_frames = ExtResource("6_xg2gt")
+audio_stream = ExtResource("8_i1j8p")
+
+[node name="Yellow" parent="OnTheGround/SequencePuzzle/Objects" instance=ExtResource("5_41yf5")]
+modulate = Color(0.89, 0.804817, 0.2937, 1)
+position = Vector2(160, -16)
+sprite_frames = ExtResource("6_xg2gt")
+audio_stream = ExtResource("9_qg2fr")
+
+[node name="Green" parent="OnTheGround/SequencePuzzle/Objects" instance=ExtResource("5_41yf5")]
+modulate = Color(0.188235, 0.717647, 0, 1)
+position = Vector2(240, -24)
+sprite_frames = ExtResource("6_xg2gt")
+audio_stream = ExtResource("10_tgsfw")
+
+[node name="Purple" parent="OnTheGround/SequencePuzzle/Objects" instance=ExtResource("5_41yf5")]
+modulate = Color(0.464066, 0.2937, 0.89, 1)
+position = Vector2(320, -32)
+sprite_frames = ExtResource("6_xg2gt")
+audio_stream = ExtResource("11_g1de4")
+
+[node name="Red" parent="OnTheGround/SequencePuzzle/Objects" instance=ExtResource("5_41yf5")]
+modulate = Color(0.89, 0.2937, 0.2937, 1)
+position = Vector2(400, -40)
+sprite_frames = ExtResource("6_xg2gt")
+audio_stream = ExtResource("12_nm4jd")
+
+[node name="Signs" type="Node2D" parent="OnTheGround/SequencePuzzle"]
+y_sort_enabled = true
+
+[node name="HintSign1" parent="OnTheGround/SequencePuzzle/Signs" instance=ExtResource("13_di3m6")]
+position = Vector2(506, 210)
+sprite_frames = ExtResource("14_vht4q")
+
+[node name="HintSign2" parent="OnTheGround/SequencePuzzle/Signs" instance=ExtResource("13_di3m6")]
+position = Vector2(593, 200)
+sprite_frames = ExtResource("15_8oras")
+
+[node name="Steps" type="Node2D" parent="OnTheGround/SequencePuzzle"]
+
+[node name="SequencePuzzleStep1" type="Node2D" parent="OnTheGround/SequencePuzzle/Steps" node_paths=PackedStringArray("sequence", "hint_sign")]
+script = ExtResource("16_7tuny")
+sequence = [NodePath("../../Objects/Yellow"), NodePath("../../Objects/Green"), NodePath("../../Objects/Blue")]
+hint_sign = NodePath("../../Signs/HintSign1")
+
+[node name="SequencePuzzleStep2" type="Node2D" parent="OnTheGround/SequencePuzzle/Steps" node_paths=PackedStringArray("sequence", "hint_sign")]
+script = ExtResource("16_7tuny")
+sequence = [NodePath("../../Objects/Blue"), NodePath("../../Objects/Green"), NodePath("../../Objects/Yellow"), NodePath("../../Objects/Green")]
+hint_sign = NodePath("../../Signs/HintSign2")
+
+[node name="CollectibleItem" parent="OnTheGround" instance=ExtResource("17_1r6vl")]
+position = Vector2(861, 282)
+revealed = false
+next_scene = "uid://c5b38qwr4euym"
+item = SubResource("Resource_2rmld")
+collected_dialogue = ExtResource("19_cmfx5")
+dialogue_title = &"well_done"
+
+[node name="Sign" parent="OnTheGround" instance=ExtResource("20_a828g")]
+position = Vector2(184, 434)
+direction = 1
+text = "First melody: yellow, green, blue."
+
+[node name="ScreenOverlay" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("21_nahtu")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(1.333, 1.333)
+position_smoothing_enabled = true
+
+[node name="Cinematic" type="Node2D" parent="."]
+script = ExtResource("22_1wnr2")
+dialogue = ExtResource("19_cmfx5")
+metadata/_custom_type_script = "uid://x1mxt6bmei2o"
+
+[connection signal="solved" from="OnTheGround/SequencePuzzle" to="OnTheGround/CollectibleItem" method="reveal"]

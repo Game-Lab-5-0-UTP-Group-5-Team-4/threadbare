@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dprw214busesm"
+path="res://.godot/imported/nioh_sequence_puzzle.dialogue-b9689ea2ea0d5c03d7d0e3bcb07d1cd5.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/nioh/3_sequence_puzzle/nioh_sequence_puzzle.dialogue"
+dest_files=["res://.godot/imported/nioh_sequence_puzzle.dialogue-b9689ea2ea0d5c03d7d0e3bcb07d1cd5.tres"]
+
+[params]
+
+defaults=true

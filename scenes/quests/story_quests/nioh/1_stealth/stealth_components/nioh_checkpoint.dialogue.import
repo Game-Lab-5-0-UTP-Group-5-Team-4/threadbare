@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b33nwjonst6wa"
+path="res://.godot/imported/nioh_checkpoint.dialogue-354c220eda3094dd8e3a12d63dec327f.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/nioh/1_stealth/stealth_components/nioh_checkpoint.dialogue"
+dest_files=["res://.godot/imported/nioh_checkpoint.dialogue-354c220eda3094dd8e3a12d63dec327f.tres"]
+
+[params]
+
+defaults=true

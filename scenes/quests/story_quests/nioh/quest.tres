@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://dch81aisrgi5j"]
+
+[ext_resource type="Script" uid="uid://dts1hwdy3phin" path="res://scenes/menus/storybook/components/quest.gd" id="1_63sxr"]
+
+[resource]
+script = ExtResource("1_63sxr")
+title = "nioh"
+description = "Espacio experimental del proyecto original \"noah\""
+first_scene = "uid://jqfno7gi76mp"
+metadata/_custom_type_script = "uid://dts1hwdy3phin"
