@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bkmp7g0cergfy"
+path="res://.godot/imported/nioh_combat.dialogue-d1769a1b3a86ca0a3489c058e2d8f29b.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/nioh/2_combat/combat_components/nioh_combat.dialogue"
+dest_files=["res://.godot/imported/nioh_combat.dialogue-d1769a1b3a86ca0a3489c058e2d8f29b.tres"]
+
+[params]
+
+defaults=true

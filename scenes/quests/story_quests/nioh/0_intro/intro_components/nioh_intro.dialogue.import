@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bfecksotqdwas"
+path="res://.godot/imported/nioh_intro.dialogue-8a288c9968c00d1e7423ff96e03c034a.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/nioh/0_intro/intro_components/nioh_intro.dialogue"
+dest_files=["res://.godot/imported/nioh_intro.dialogue-8a288c9968c00d1e7423ff96e03c034a.tres"]
+
+[params]
+
+defaults=true

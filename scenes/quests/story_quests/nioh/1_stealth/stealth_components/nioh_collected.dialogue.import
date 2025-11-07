@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://6ks3vuc8tlj4"
+path="res://.godot/imported/nioh_collected.dialogue-ac815214ced082f7403cbf24152d57d0.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/nioh/1_stealth/stealth_components/nioh_collected.dialogue"
+dest_files=["res://.godot/imported/nioh_collected.dialogue-ac815214ced082f7403cbf24152d57d0.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c603smnkrhjap"
+path="res://.godot/imported/nioh_outro.dialogue-ee9b95c88d3c64abc94b18a12d385553.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/nioh/4_outro/outro_components/nioh_outro.dialogue"
+dest_files=["res://.godot/imported/nioh_outro.dialogue-ee9b95c88d3c64abc94b18a12d385553.tres"]
+
+[params]
+
+defaults=true
